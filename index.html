@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>♠️ Jubmoo — วิธีเล่นไพ่จับหมู</title>
+  <!-- ฟอนต์ภาษาไทยสวย modern -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* ตั้งฟอนต์ทั้งหมดเป็นฟอนต์มีหัว อ่านง่าย modern */
+    body {
+      font-family: 'IBM Plex Serif', serif;
+      background: #fff9fb;
+      color: #111; /* สีเนื้อหาเข้ม อ่านง่าย */
+      line-height: 1.8;
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    /* Heading banner สีอ่อน */
+    h1, h2, h3 {
+      color: #111; /* สีดำเข้ม */
+      background: #ffe6f1; /* แถบ banner สีอ่อน */
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      border-bottom: none; /* ลบเส้น dashed เดิม */
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+    }
+
+    .meta {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+
+    p, ul, ol, .note, .example {
+      color: #111; /* สีดำเหมือน heading */
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 14px;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background: #ffe6f1; /* header ตารางสีอ่อนเหมือน banner */
+      font-weight: 600;
+    }
+
+    td {
+      background: #fff;
+    }
+
+    .example {
+      background: #fff7e8;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 8px;
+    }
+
+    .note {
+      background: #f8fafc;
+      border-left: 4px solid #c7e0ff;
+      padding: 10px;
+      border-radius: 6px;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+    }
+
+    footer {
+      color: #555;
+      font-size: 13px;
+      margin-top: 18px;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Jubmoo — วิธีเล่นไพ่จับหมู</h1>
+  <div class="meta">
+    ผู้เขียน: ymii ・ 21 ก.ย. 2568 
+  </div>
+
+  <h2>เป้าหมาย</h2>
+  <p>ผู้ที่มีแต้มรวมสูงสุด (หรือบวกมากสุด) จะเป็นผู้ชนะ — ผู้ที่หน้าตักว่าง / ไม่เคยกินไพ่เลยตลอดทั้งเกม จะได้แต้ม -50</p>
+
+  <h2>การตั้งเกม & การแจก</h2>
+  <ul>
+    <li>ผู้เล่น: <strong>4 คน</strong></li>
+    <li>แจกไพ่: แต่ละคนได้ไพ่ <strong>13 ใบ</strong> (รวม 52 ใบ)</li>
+    <li>การดำเนินเกม: วน <strong>13 รอบ</strong>ใน 1 เกม, ในแต่ละรอบจะมีคนหนึ่งเป็น <strong>คนหลีด (lead)</strong> วางเปิดหน้าไพ่</li>
+    <li>ลำดับการลงไพ่: ตามเข็มนาฬิกา (← ไปทางซ้าย)</li>
+  </ul>
+
+  <h2>ตารางแต้มตามดอก</h2>
+  <table>
+    <thead>
+      <tr><th>ดอก</th><th>ไพ่ที่มีแต้ม</th><th>ค่า / คำอธิบาย</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>โพแดง (♥)</td>
+        <td>ทุกใบ</td>
+        <td>ตัวเลข = แต้มลบตามตัวเลข เช่น 8♥ = <strong>-8</strong> | J,Q,K,A = <strong>-20,-30,-40,-50</strong> ตามลำดับ</td>
+      </tr>
+      <tr>
+        <td>หลามตัด (♦)</td>
+        <td>ไม่มีแต้ม ยกเว้น J</td>
+        <td>J (แจ็คตัด) = <strong>+100</strong> — ไพ่ที่ทุกคนอยากกิน</td>
+      </tr>
+      <tr>
+        <td>โพดำ (♠)</td>
+        <td>ไม่มีแต้ม ยกเว้น Q</td>
+        <td>Q (แหม่มดำ) = <strong>-100</strong> — ต้องระวังไม่ให้กิน</td>
+      </tr>
+      <tr>
+        <td>ดอกจิก (♣)</td>
+        <td>ไม่มีแต้ม ยกเว้น 10</td>
+        <td>10♣ (สิบจิก): ถ้าผู้เล่นที่กินยังไม่มีแต้มในกอง → 10♣ = <strong>+50</strong>. หากมีแต้มอยู่แล้ว → 10♣ จะคูณ 2 ผลรวมแต้มของผู้เล่น</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>ตัวอย่างการคำนวนแต้ม</h2>
+  <div class="example">
+    สมมติผู้เล่น A กินไพ่ในรอบหนึ่งได้: 8♥, J♦ (แจ็คตัด), Q♠, 10♣<br>
+    - 8♥ = -8<br>
+    - J♦ = +100<br>
+    - Q♠ = -100<br>
+    รวมก่อน 10♣ = -8 + 100 -100 = -8 → เมื่อมี 10♣ (สมมติคูณผลรวมทั้งหมด) จะเป็น <strong>-8 × 2 = -16</strong><br>
+    (ถ้าผู้เล่นหน้าตักว่างก่อน 10♣ → 10♣ = +50 แทนการคูณ)
+  </div>
+
+  <footer>
+    กีฬามหาลัยในการแข่งขันกีฬาน้องใหม่ เขียนโดยผู้เล่นนิรนาม จากคณะคู่ปรับตลอดกาลของบัญชี เพื่อให้ไพ่จับหมูเป็นที่นิยมมากขึ้นในมหาลัย และมีคณะอื่นๆมาแข่งมากขึ้น
+  </footer>
+</body>
+</html>
